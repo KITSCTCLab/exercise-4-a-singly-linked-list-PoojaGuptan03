@@ -72,32 +72,25 @@ class Solution:
         :param second_list: Linkedlist with non-negative integers
         :return: returns the sum as a linked list
         """
-        first_list = first_list.head
-        second_list = second_list.head
-        carry = 0
-        
-        result_solution = Node()
-        monk = result_solution
+       
+        def fill_num(node, array=[]):
+            while node:
+                array.append(str(node.data))
+                node = node.next
+            return ''.join(array)
+            
         
         solution = []
-        while first_list and second_list or carry >= 0:
-            first_list_value = first_list.data if first_list else 0
-            second_list_value = second_list.data if second_list else 0
-            total_value = first_list_value + second_list_value + carry
-            consume_value = total_value%10
-            carry = total_value//10
-            new_result_node = Node(consume_value)
-            monk.next = new_result_node
-            monk = monk.next
-    
-            first_list = first_list.next if first_list else None
-            second_list = second_list.next if second_list else None
-            
-            if first_list is None and second_list is None and carry == 0:
-                solution.append(consume_value)
-                break
-            solution.append(consume_value)
         
+        first_num = fill_num(first_list.head,[])
+        second_num = fill_num(second_list.head,[])
+        result = str(eval("{}+{}".format(first_num,second_num)))
+        
+        for char in result[::-1]:
+            solution.append(int(char))
+        
+        
+            
         return solution
         # result_node = Node()
         # monk = result_node
