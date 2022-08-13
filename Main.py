@@ -79,6 +79,7 @@ class Solution:
         result_solution = Node()
         monk = result_solution
         
+        solution = []
         while first_list and second_list or carry >= 0:
             first_list_value = first_list.data if first_list else 0
             second_list_value = second_list.data if second_list else 0
@@ -93,30 +94,32 @@ class Solution:
             second_list = second_list.next if second_list else None
             
             if first_list is None and second_list is None and carry == 0:
+                solution.append(consume_value)
                 break
+            solution.append(consume_value)
+        
+        return solution
+        # result_node = Node()
+        # monk = result_node
+        # first_run = True
         
         
-        result_node = Node()
-        monk = result_node
-        first_run = True
-        
-        solution = []
-        while result_solution is not None:
+        # while result_solution is not None:
             
 
-            temp_node = Node(result_solution.data)
-            temp_node.next = monk
-            monk = temp_node
-            result_solution = result_solution.next
-            if result_solution:
-                solution.append(result_solution.data)
+        #     temp_node = Node(result_solution.data)
+        #     temp_node.next = monk
+        #     monk = temp_node
+        #     result_solution = result_solution.next
+        #     if result_solution:
+        #         solution.append(result_solution.data)
             
 
        
-        linked_list = LinkedList()
-        linked_list.head = monk
+        # linked_list = LinkedList()
+        # linked_list.head = monk
         
-        return solution
+        # return solution
             
             
             
