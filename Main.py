@@ -1,6 +1,8 @@
 from typing import Optional
 
 
+solution = []
+
 class Node:
     """
     Provide necessary documentation
@@ -97,6 +99,8 @@ class Solution:
         result_node = Node()
         monk = result_node
         first_run = True
+        
+        solution = []
         while result_solution is not None:
             
 
@@ -104,12 +108,15 @@ class Solution:
             temp_node.next = monk
             monk = temp_node
             result_solution = result_solution.next
+            if result_solution:
+                solution.append(result_solution.data)
+            
 
        
         linked_list = LinkedList()
         linked_list.head = monk
         
-        return linked_list
+        return solution
             
             
             
@@ -138,4 +145,5 @@ solution = Solution()
 new_list = solution.addTwoNumbers(first_list, second_list)
 # # Display the status of new_list
 # first_list.status()
-new_list.status()
+# new_list.status()
+print(new_list)
